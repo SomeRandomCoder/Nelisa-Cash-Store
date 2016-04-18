@@ -7,6 +7,7 @@ var leastPopularCategory = require('../leastPopularCategory');
 var mostProfitableProduct = require('../mostProfitableProduct');
 var leastProfitableProduct = require('../leastProfitableProduct');
 var purchases = require("../Purchases");
+var mostProfitableCategory = require("../mostProfitableCategory");
 
  describe("week1Sales", function(){
   it("should return a list of week1 products and quantity of each product sold in an array format.", function(){
@@ -231,32 +232,32 @@ describe("mostPopularProduct4",function(){
   });
 });
 
-describe("categoryMap", function(){
-  it("should return the categories in a map", function(){
-    var result = mostPopularCategory.categoryMap("./Spaza-Shop-Kata/catagories.csv");
-    assert.deepEqual(result,
-      [ { stockItem: 'Bananas - loose', category: 'Fruit' },
-        { stockItem: 'Imasi', category: 'Dairy' },
-        { stockItem: 'Bread', category: 'Baked_Goods' },
-        { stockItem: 'Chakalaka Can', category: 'Canned_Goods' },
-        { stockItem: 'Coke 500ml', category: 'Sweets' },
-        { stockItem: 'Cream Soda 500ml', category: 'Sweets' },
-        { stockItem: 'Fanta 500ml', category: 'Sweets' },
-        { stockItem: 'Gold Dish Vegetable Curry Can',
-          category: 'Canned_Goods' },
-        { stockItem: 'Iwisa Pap 5kg', category: 'Cereal' },
-        { stockItem: 'Milk 1l', category: 'Dairy' },
-        { stockItem: 'Mixed Sweets 5s', category: 'Sweets' },
-        { stockItem: 'Shampoo 1 litre', category: 'Hygiene' },
-        { stockItem: 'Soap Bar', category: 'Hygiene' },
-        { stockItem: 'Top Class Soy Mince', category: 'Meat' },
-        { stockItem: 'Heart Chocolates', category: 'Sweets' },
-        { stockItem: 'Rose (plastic)', category: 'Other' } ]
-
-
-);
-  });
-});
+// describe("categoryMap", function(){
+//   it("should return the categories in a map", function(){
+//     var result = mostPopularCategory.categoryMap("./Spaza-Shop-Kata/catagories.csv");
+//     assert.deepEqual(result,
+//       [ { stockItem: 'Bananas - loose', category: 'Fruit' },
+//         { stockItem: 'Imasi', category: 'Dairy' },
+//         { stockItem: 'Bread', category: 'Baked_Goods' },
+//         { stockItem: 'Chakalaka Can', category: 'Canned_Goods' },
+//         { stockItem: 'Coke 500ml', category: 'Sweets' },
+//         { stockItem: 'Cream Soda 500ml', category: 'Sweets' },
+//         { stockItem: 'Fanta 500ml', category: 'Sweets' },
+//         { stockItem: 'Gold Dish Vegetable Curry Can',
+//           category: 'Canned_Goods' },
+//         { stockItem: 'Iwisa Pap 5kg', category: 'Cereal' },
+//         { stockItem: 'Milk 1l', category: 'Dairy' },
+//         { stockItem: 'Mixed Sweets 5s', category: 'Sweets' },
+//         { stockItem: 'Shampoo 1 litre', category: 'Hygiene' },
+//         { stockItem: 'Soap Bar', category: 'Hygiene' },
+//         { stockItem: 'Top Class Soy Mince', category: 'Meat' },
+//         { stockItem: 'Heart Chocolates', category: 'Sweets' },
+//         { stockItem: 'Rose (plastic)', category: 'Other' } ]
+//
+//
+// );
+//   });
+// });
 
 describe("popularCatergoryWeek1",function(){
   it("should return the most popular catergory for week 1", function(){
@@ -372,6 +373,13 @@ describe("mostProfitableProduct",function(){
   it("should return the most profitable product of each week",function(){
     var result = mostProfitableProduct.mostProfitableProduct();
     assert.deepEqual(result,{"week1":"Imasi","week2":"Imasi","week3":"Imasi","week4":"Imasi"});
+  });
+});
+
+describe("mostProfitableCategory",function(){
+  it("should return the most profitable category of each week",function(){
+    var result = mostProfitableCategory.mostProfitableCategory();
+    assert.deepEqual(result,{"week1":"Dairy","week2":"Dairy","week3":"Dairy","week4":"Dairy"} );
   });
 });
 // describe("leastProfitableProduct",function(){

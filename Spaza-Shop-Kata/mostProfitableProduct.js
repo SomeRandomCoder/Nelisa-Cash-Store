@@ -46,7 +46,7 @@ exports.mostProfitableProduct = function() {
       }
     }
   }
-  
+
   var mpp1 = w1.sort(function(a, b) {
     return parseFloat(b.profit) - parseFloat(a.profit);
 });
