@@ -2,12 +2,12 @@ var weeklySales = require("./weeklySales");
 var fs = require("fs");
 
 // var weeklySale = weeklySales.weeklySales();
-// var weeklySales1 = weeklySale.week1;
-// var weeklySales2 = weeklySale.week2;
-// var weeklySales3 = weeklySale.week3;
-// var weeklySales4 = weeklySale.week4;
+var weeklySales1 = weeklySales.week1Sales;
+var weeklySales2 = weeklySales.week2Sales;
+var weeklySales3 = weeklySales.week3Sales;
+var weeklySales4 = weeklySales.week4Sales;
 
-exports.leastPopularCategoryWeek1 = function(weeklySales, categories){
+exports.leastPopularCategoryWeek1 = function(){
     var leastPopularCategoryWeek1 =[];
 
     for (var i =0; i <weeklySales.length; i++){
@@ -27,7 +27,7 @@ exports.leastPopularCategoryWeek1 = function(weeklySales, categories){
     return leastPopularCategoryWeek1;
 };
 
-exports.leastPopularCategoryWeek2 = function(weeklySales2, categories){
+exports.leastPopularCategoryWeek2 = function(){
     var leastPopularCategoryWeek2=[];
 
       for(var i=0; i <weeklySales2.length; i++){
@@ -47,7 +47,7 @@ exports.leastPopularCategoryWeek2 = function(weeklySales2, categories){
       return leastPopularCategoryWeek2;
 };
 
-exports.leastPopularCategoryWeek3=function(weeklySales3,categories){
+exports.leastPopularCategoryWeek3=function(){
   var leastPopularCategoryWeek3=[];
 
   for(var i=0; i< weeklySales3.length; i++){
@@ -66,7 +66,7 @@ exports.leastPopularCategoryWeek3=function(weeklySales3,categories){
   return leastPopularCategoryWeek3;
 };
 
-exports.leastPopularCategoryWeek4=function(weeklySales4,categories){
+exports.leastPopularCategoryWeek4=function(){
   var leastPopularCategoryWeek4=[];
 
   for(var i=0; i< weeklySales4.length; i++){

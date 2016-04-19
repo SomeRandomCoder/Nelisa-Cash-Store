@@ -1,26 +1,26 @@
 var weeklySales = require("./weeklySales");
 var fs = require("fs");
 
-// var weeklySale = weeklySales.weeklySales();
+
 var weeklySales1 =weeklySales.week1Sales();
 var weeklySales2 = weeklySales.week2Sales();
 var weeklySales3 = weeklySales.week3Sales();
 var weeklySales4 = weeklySales.week4Sales();
-exports.mostProfitableProduct = function() {
 
+exports.mostProfitableProduct = function() {
 
   var purchases = fs.readFileSync('./purchases.csv', "utf8");
 
   purchases = purchases.replace("Shop;Date;Item;Quantity;Cost;Total Cost", "").replace(/R/g, "");
-  var interimArray = purchases.split('\n').join('.').split(";").join(".").split(".");
-  // console.log(interimArray);
+  var processingArray = purchases.split('\n').join('.').split(";").join(".").split(".");
+  // console.log(processingArray);
   var bought = [];
 
-  for(x=0;x<interimArray.length - 1;x++){
+  for(x=0;x<processingArray.length - 1;x++){
     if(x % 6 === 0){
-      var item = interimArray[x - 3];
-      var cost = interimArray[x];
-      // console.log(interimArray[x]);
+      var item = processingArray[x - 3];
+      var cost = processingArray[x];
+      // console.log(processingArray[x]);
     bought.push({
       item: item,
       cost: cost
@@ -29,8 +29,8 @@ exports.mostProfitableProduct = function() {
   }
   // console.log(bought);
 
-
-  var w1 = [];
+//=======================================================================
+  var week1 = [];
   for (x = 0; x < bought.length; x++) {
     for (y = 0; y < weeklySales1.length; y++) {
       if (weeklySales1[y].stockItem === bought[x].item) {
@@ -40,20 +40,21 @@ exports.mostProfitableProduct = function() {
         var income = weeklySales1[y].singlePrice;
         var totalincome = income * amountsold;
         var profit = totalincome - costs;
-        w1.push({item: items,
+        week1.push({item: items,
                 profit: profit
                 });
       }
     }
   }
 
-  var mpp1 = w1.sort(function(a, b) {
+  var mostProfitableProduct1 = week1.sort(function(a, b) {
     return parseFloat(b.profit) - parseFloat(a.profit);
 });
 
-var MostProfitableProduct1 = mpp1[0];
+var MostProfitableProduct1 = mostProfitableProduct1[0];
+//=======================================================================
 
-var w2 = [];
+var week2 = [];
 for (x = 0; x < bought.length; x++) {
   for (y = 0; y < weeklySales2.length; y++) {
     // console.log(bought[x].item);
@@ -65,20 +66,20 @@ for (x = 0; x < bought.length; x++) {
       var income2 = weeklySales2[y].singlePrice;
       var totalincome2 = income2 * amountsold2;
       var profit2 = totalincome2 - costs2;
-      w2.push({item: items2,
+      week2.push({item: items2,
               profit: profit2
               });
     }
   }
 }
-var mpp2 = w2.sort(function(a, b) {
+var mostProfitableProduct2 = week2.sort(function(a, b) {
   return parseFloat(b.profit) - parseFloat(a.profit);
 
 });
 
-var MostProfitableProduct2 = mpp2[0];
-
-var w3 = [];
+var MostProfitableProduct2 = mostProfitableProduct2[0];
+//===========================================================================
+var week3 = [];
 for (x = 0; x < bought.length; x++) {
   for (y = 0; y < weeklySales3.length; y++) {
     if (weeklySales3[y].stockItem === bought[x].item) {
@@ -88,19 +89,20 @@ for (x = 0; x < bought.length; x++) {
       var income3 = weeklySales3[y].singlePrice;
       var totalincome3 = income3 * amountsold3;
       var profit3 = totalincome3 - costs3;
-      w3.push({item: items3,
+      week3.push({item: items3,
               profit: profit3
               });
     }
   }
 }
-var mpp3 = w3.sort(function(a, b) {
+var mostProfitableProduct3 = week3.sort(function(a, b) {
   return parseFloat(b.profit) - parseFloat(a.profit);
 
 });
-var MostProfitableProduct3 = mpp3[0];
+var MostProfitableProduct3 = mostProfitableProduct3[0];
+//===========================================================================
 
-var w4 = [];
+var week4 = [];
 for (x = 0; x < bought.length; x++) {
   for (y = 0; y < weeklySales4.length; y++) {
     if (weeklySales4[y].stockItem === bought[x].item) {
@@ -110,20 +112,26 @@ for (x = 0; x < bought.length; x++) {
       var income4 = weeklySales4[y].singlePrice;
       var totalincome4 = income4 * amountsold4;
       var profit4 = totalincome4 - costs4;
-      w4.push({item: items4,
+      week4.push({item: items4,
               profit: profit4
               });
     }
   }
 }
-var mpp4 = w4.sort(function(a, b) {
+var mostProfitableProduct4 = week4.sort(function(a, b) {
   return parseFloat(b.profit) - parseFloat(a.profit);
-
 });
 
-var MostProfitableProduct4 = mpp4[0];
-var mostProfitableProduct = {"week1":MostProfitableProduct1.item,"week2":MostProfitableProduct2.item,"week3":MostProfitableProduct3.item,"week4":MostProfitableProduct4.item};
-console.log(mostProfitableProduct);
+var MostProfitableProduct4 = mostProfitableProduct4[0];
+
+//=================================================================================
+var mostProfitableProduct = {
+  "week1":MostProfitableProduct1.item,
+  "week2":MostProfitableProduct2.item,
+  "week3":MostProfitableProduct3.item,
+  "week4":MostProfitableProduct4.item};
+
+// console.log(mostProfitableProduct);
 return mostProfitableProduct;
 
 };

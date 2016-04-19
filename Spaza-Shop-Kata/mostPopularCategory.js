@@ -3,13 +3,13 @@ var weeklySales = require("./weeklySales");
 var fs = require("fs");
 
 // var weeklySale = weeklySales.weeklySales();
-// var weeklySales1 = weeklySale.week1;
-// var weeklySales2 = weeklySale.week2;
-// var weeklySales3 = weeklySale.week3;
-// var weeklySales4 = weeklySale.week4;
+var weeklySales1 = weeklySales.week1Sales;
+var weeklySales2 = weeklySales.week2Sales;
+var weeklySales3 = weeklySales.week3Sales;
+var weeklySales4 = weeklySales.week4Sales;
 
 
-exports.categoryMap= function(weeklySales){
+exports.categoryMap= function(){
   var file = fs.readFileSync("../Spaza-Shop-Kata/catagories.csv", "utf8");
   var files = file.replace(/Product,Category\n/g, "").replace(/\n/g, ",").split(",");
 
@@ -25,11 +25,11 @@ exports.categoryMap= function(weeklySales){
         "stockItem": stockItem,
         "category": categorys
       });
-      // console.log(array);
+
 
     }
   }
-  console.log(categories);
+  // console.log(categories);
   return categories;
 };
 
@@ -49,7 +49,7 @@ exports.popularCatergoryWeek1 = function(weeklySales, categories){
       }
     }
   }
-  console.log(popularCatergoryWeek1);
+  // console.log(popularCatergoryWeek1);
   return popularCatergoryWeek1;
 };
 
@@ -69,7 +69,7 @@ exports.popularCatergoryWeek2=function(weeklySales2, categories){
       }
     }
   }
-  console.log(popularCatergoryWeek2);
+  // console.log(popularCatergoryWeek2);
   return popularCatergoryWeek2;
 
 };
@@ -89,7 +89,7 @@ exports.popularCatergoryWeek3=function(weeklySales3, categories){
         }
     }
   }
-  console.log(popularCatergoryWeek3);
+  // console.log(popularCatergoryWeek3);
   return popularCatergoryWeek3;
 };
 
@@ -108,6 +108,6 @@ exports.popularCategoryWeek4= function(weeklySales4, categories){
             }
         }
       }
-      console.log(popularCategoryWeek4);
+      // console.log(popularCategoryWeek4);
       return popularCategoryWeek4;
 };

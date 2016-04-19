@@ -1,7 +1,6 @@
 var fs = require('fs'); //file system
 
 exports.week1Sales = function() {
-
   var sales = fs.readFileSync('../Spaza-Shop-Kata/week1.csv', "utf8");
   sales = sales.replace("Day,Date,stock item,No sold,Sales Price\n", "");
 
@@ -14,12 +13,12 @@ exports.week1Sales = function() {
 
   var salesList = [];
 
-  week1Array.forEach(function(array) {
-    salesList.push([array[2], Number(array[3]), Number(array[4])] );
+  week1Array.forEach(function(index) {
+    salesList.push([index[2], Number(index[3]), Number(index[4])] );
   });
 
   salesList.sort();
-  // console.log(salesList);
+
 
   var weeklySales = [];
 
@@ -40,24 +39,7 @@ exports.week1Sales = function() {
       });
     }
   }
-
-
-
-  // var week1IncomeArray =[];
-  //
-  //   for(var y=0;y< weeklySales.length; y++){
-  //     for(var o = 0; o < salesList.length; o++){
-  //       if(weeklySales[y].stockItem === salesList[o][1])
-  //       var income = weeklySales[y].sold * salesList[o][2];
-  //
-  //     }
-  //     week1IncomeArray.push({
-  //       stockItem: weeklySales[y].stockItem,
-  //       income: income
-  //     });
-  //   }
-
-  console.log(weeklySales);
+  // console.log(weeklySales);
   return weeklySales;
 };
 //------------------------------------------------------------------------------------------------
@@ -76,16 +58,15 @@ for (i = 0; i < itemsArray.length - 1; i++) {
 }
 
 var salesList2 = [];
-week2Array.forEach(function(array) {
-  salesList2.push([array[2], Number(array[3]), Number(array[4])]);
+week2Array.forEach(function(index) {
+  salesList2.push([index[2], Number(index[3]), Number(index[4])]);
 });
-
 salesList2.sort();
 // console.log(salesList2);
+
 var weeklySales2 = [];
 
 for (i = 0; i < salesList2.length; i++) {
-
   if (i % 7 === 0) {
     var stockItem = salesList2[i][0];
     var sold = 0;
@@ -101,7 +82,7 @@ for (i = 0; i < salesList2.length; i++) {
     });
   }
 }
-console.log(weeklySales2);
+// console.log(weeklySales2);
 return weeklySales2;
 };
 //--------------------------------------------------------------------------------------------------------
@@ -118,8 +99,8 @@ for (i = 0; i < week3ItemsArray.length - 1; i++) {
 
 var salesList3 = [];
 
-week3Array.forEach(function(array) {
-  salesList3.push([array[2], Number(array[3]),Number(array[4])]);
+week3Array.forEach(function(index) {
+  salesList3.push([index[2], Number(index[3]),Number(index[4])]);
 });
 
 salesList3.sort();
@@ -127,7 +108,6 @@ salesList3.sort();
 var weeklySales3 = [];
 
 for (i = 0; i < salesList3.length; i++) {
-
   if (i % 7 === 0) {
     var stockItem = salesList3[i][0];
     var sold = 0;
@@ -142,16 +122,16 @@ var singlePrice = Number(salesList3[i][2]);
     });
   }
 }
-console.log(weeklySales3);
+// console.log(weeklySales3);
 return weeklySales3;
 };
 
 //-----------------------------------------------------------------------------------------------------
 exports.week4Sales = function(){
-var sales = fs.readFileSync('../Spaza-Shop-Kata/week4.csv', "utf8");
-sales = sales.replace("Day,Date,stock item,No sold,Sales Price\n", "");
+var sales4 = fs.readFileSync('../Spaza-Shop-Kata/week4.csv', "utf8");
+sales4 = sales4.replace("Day,Date,stock item,No sold,Sales Price\n", "");
 
-var week4ItemsArray = sales.replace(/R/g, "").split('\n');
+var week4ItemsArray = sales4.replace(/R/g, "").split('\n');
 
 var week4Array = [];
 for (i = 0; i < week4ItemsArray.length - 1; i++) {
@@ -159,8 +139,8 @@ for (i = 0; i < week4ItemsArray.length - 1; i++) {
 }
 
 var salesList4 = [];
-week4Array.forEach(function(array) {
-  salesList4.push([array[2], Number(array[3]),Number(array[4])]);
+week4Array.forEach(function(index) {
+  salesList4.push([index[2], Number(index[3]),Number(index[4])]);
 });
 
 salesList4.sort();
@@ -168,7 +148,6 @@ salesList4.sort();
 var weeklySales4 = [];
 
 for (i = 0; i < salesList4.length; i++) {
-
   if (i % 7 === 0) {
     var stockItem = salesList4[i][0];
     var sold = 0;
@@ -184,17 +163,6 @@ for (i = 0; i < salesList4.length; i++) {
     });
   }
 }
- console.log(weeklySales4);
- return weeklySales4
+ // console.log(weeklySales4);
+ return weeklySales4;
  };
-
-
-//   var weeklySalesMap = {
-//   "week1":weeklySales1,
-//    "week2":weeklySales2,
-//    "week3":weeklySales3,
-//    "week4":weeklySales4 };
-//
-//   console.log(weeklySalesMap);
-//   return weeklySalesMap;
-// };

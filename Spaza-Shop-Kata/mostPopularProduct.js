@@ -7,7 +7,7 @@ exports.mostPopularProduct1 = function(weeklySales) {
     return b.sold - a.sold;
   });
   var MostPopularProduct = weeklySales[0];
-  console.log(MostPopularProduct);
+  // console.log(MostPopularProduct);
   return MostPopularProduct;
 };
 
@@ -17,9 +17,9 @@ exports.mostPopularProduct2 = function(weeklySales2) {
     return b.sold - a.sold;
   });
 
-  var MostPopularProduct = weeklySales2[0];
-  console.log(MostPopularProduct);
-  return MostPopularProduct;
+  var MostPopularProduct2 = weeklySales2[0];
+  // console.log(MostPopularProduct2);
+  return MostPopularProduct2;
 };
 
 exports.mostPopularProduct3 = function(weeklySales3) {
@@ -27,9 +27,9 @@ exports.mostPopularProduct3 = function(weeklySales3) {
     return b.sold - a.sold;
   });
 
-  var MostPopularProduct = weeklySales3[0];
-  console.log(MostPopularProduct);
-  return MostPopularProduct;
+  var MostPopularProduct3 = weeklySales3[0];
+  // console.log(MostPopularProduct3);
+  return MostPopularProduct3;
 };
 
 exports.mostPopularProduct4 = function(weeklySales4) {
@@ -37,7 +37,7 @@ exports.mostPopularProduct4 = function(weeklySales4) {
     return b.sold - a.sold;
   });
 
-  var MostPopularProduct = weeklySales4[0];
-  console.log(MostPopularProduct);
-  return MostPopularProduct;
+  var MostPopularProduct4 = weeklySales4[0];
+  // console.log(MostPopularProduct4);
+  return MostPopularProduct4;
 };

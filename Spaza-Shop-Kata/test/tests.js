@@ -5,12 +5,10 @@ var leastPopularProduct = require('../leastPopularProduct');
 var mostPopularCategory = require('../mostPopularCategory');
 var leastPopularCategory = require('../leastPopularCategory');
 var mostProfitableProduct = require('../mostProfitableProduct');
-var leastProfitableProduct = require('../leastProfitableProduct');
-var purchases = require("../Purchases");
 var mostProfitableCategory = require("../mostProfitableCategory");
 
  describe("week1Sales", function(){
-  it("should return a list of week1 products and quantity of each product sold in an array format.", function(){
+  it("should return a list of week1 products, quantity of each product sold and single price per item .", function(){
     var result = weeklySales.week1Sales();
     assert.deepEqual(result,
       [ { stockItem: 'Apples - loose', sold: 36, singlePrice: 2 },
@@ -36,7 +34,7 @@ var mostProfitableCategory = require("../mostProfitableCategory");
 });
 
 describe("week2Sales",function(){
-  it("should return the products and quantity sold for each product", function(){
+  it("should return a list of week2 products, quantity of each product sold and single price per item", function(){
     var result = weeklySales.week2Sales('./Spaza-Shop-Kata/week2.csv');
     assert.deepEqual(result,
       [ { stockItem: 'Apples - loose', sold: 0, singlePrice: 2 },
@@ -65,7 +63,7 @@ describe("week2Sales",function(){
 
 describe("week3Sales", function(){
 
-  it("should return a list of week 3 products and quantity of each product sold.", function(){
+  it("should return a list of week3 products, quantity of each product sold and single price per item", function(){
     var result = weeklySales.week3Sales('./Spaza-Shop-Kata/week3.csv');
     assert.deepEqual(result,
 
@@ -93,7 +91,7 @@ describe("week3Sales", function(){
 
 describe("week4Sales", function(){
 
-  it("should return a list of week 4 products and quantity of each product sold.", function(){
+  it("should return a list of week4 products, quantity of each product sold and single price per item", function(){
     var result = weeklySales.week4Sales('./Spaza-Shop-Kata/week4.csv');
     assert.deepEqual(result,
       [ { stockItem: 'Apples - loose', sold: 7, singlePrice: 2 },
@@ -232,33 +230,6 @@ describe("mostPopularProduct4",function(){
   });
 });
 
-// describe("categoryMap", function(){
-//   it("should return the categories in a map", function(){
-//     var result = mostPopularCategory.categoryMap("./Spaza-Shop-Kata/catagories.csv");
-//     assert.deepEqual(result,
-//       [ { stockItem: 'Bananas - loose', category: 'Fruit' },
-//         { stockItem: 'Imasi', category: 'Dairy' },
-//         { stockItem: 'Bread', category: 'Baked_Goods' },
-//         { stockItem: 'Chakalaka Can', category: 'Canned_Goods' },
-//         { stockItem: 'Coke 500ml', category: 'Sweets' },
-//         { stockItem: 'Cream Soda 500ml', category: 'Sweets' },
-//         { stockItem: 'Fanta 500ml', category: 'Sweets' },
-//         { stockItem: 'Gold Dish Vegetable Curry Can',
-//           category: 'Canned_Goods' },
-//         { stockItem: 'Iwisa Pap 5kg', category: 'Cereal' },
-//         { stockItem: 'Milk 1l', category: 'Dairy' },
-//         { stockItem: 'Mixed Sweets 5s', category: 'Sweets' },
-//         { stockItem: 'Shampoo 1 litre', category: 'Hygiene' },
-//         { stockItem: 'Soap Bar', category: 'Hygiene' },
-//         { stockItem: 'Top Class Soy Mince', category: 'Meat' },
-//         { stockItem: 'Heart Chocolates', category: 'Sweets' },
-//         { stockItem: 'Rose (plastic)', category: 'Other' } ]
-//
-//
-// );
-//   });
-// });
-
 describe("popularCatergoryWeek1",function(){
   it("should return the most popular catergory for week 1", function(){
     var result=mostPopularCategory.popularCatergoryWeek1(
@@ -382,9 +353,3 @@ describe("mostProfitableCategory",function(){
     assert.deepEqual(result,{"week1":"Dairy","week2":"Dairy","week3":"Dairy","week4":"Dairy"} );
   });
 });
-// describe("leastProfitableProduct",function(){
-//   it("should return the least profitable product of each week",function(){
-//     var result = leastProfitableProduct.leastProfitableProduct();
-//     assert.deepEqual(result,{"week1":"Mixed Sweets 5s","week2":"Mixed Sweets 5s","week3":"Mixed Sweets 5s","week4":"Mixed Sweets 5s"});
-//   });
-// });
