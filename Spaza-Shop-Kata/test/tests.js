@@ -1,11 +1,11 @@
 var assert = require('assert');
-var weeklySales = require('../weeklySales');
-var mostPopularProduct = require('../mostPopularProduct');
-var leastPopularProduct = require('../leastPopularProduct');
-var mostPopularCategory = require('../mostPopularCategory');
-var leastPopularCategory = require('../leastPopularCategory');
-var mostProfitableProduct = require('../mostProfitableProduct');
-var mostProfitableCategory = require("../mostProfitableCategory");
+var weeklySales = require('../functions/weeklySales');
+var mostPopularProduct = require('../functions/mostPopularProduct');
+var leastPopularProduct = require('../functions/leastPopularProduct');
+var mostPopularCategory = require('../functions/mostPopularCategory');
+var leastPopularCategory = require('../functions/leastPopularCategory');
+var mostProfitableProduct = require('../functions/mostProfitableProduct');
+var mostProfitableCategory = require("../functions/mostProfitableCategory");
 
  describe("week1Sales", function(){
   it("should return a list of week1 products, quantity of each product sold and single price per item .", function(){
@@ -229,6 +229,25 @@ describe("mostPopularProduct4",function(){
 );
   });
 });
+
+describe("leastPopularProduct",function(){
+  it("should return the least popular product of each week",function(){
+    var result = leastPopularProduct.leastPopularProducts();
+    assert.deepEqual(result,{
+      "week1":"Shampoo 1 litre",
+    "week2":"Heart Chocolates",
+    "week3":"Shampoo 1 litre",
+    "week4":"Top Class Soy Mince"
+  });
+  });
+});
+
+// describe("mostPopularProduct",function(){
+//   it("should return the most popular product of each week",function(){
+//     var result = mostPopularProduct.mostPopularProduct();
+//     assert.deepEqual(result,{"week1":"Coke 500ml","week2":"Coke 500ml","week3":"Milk 1l","week4":"Gold Dish Vegetable Curry Can"});
+//   });
+// });
 
 describe("popularCatergoryWeek1",function(){
   it("should return the most popular catergory for week 1", function(){
